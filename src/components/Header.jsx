@@ -24,7 +24,7 @@ function Header({ setCartVisible, productsInCart, addProductToCart }) {
       </div>
       <div className="header-two">
         <div className="searching-bar">
-          <p style={{ color: "white", textAlign: "center", fontSize: "20px" }}>
+          <p style={{ color: "white", textAlign: "center", fontSize: "16px", fontWeight: "bold" }}>
             Search for our best products!
           </p>
           <SearchBar addProductToCart={addProductToCart} />
