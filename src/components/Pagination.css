@@ -1,0 +1,35 @@
+.pagination ul {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-top: 30px;
+  padding: 3px;
+}
+
+.pagination ul li {
+  list-style: none;
+}
+
+.pagination a {
+  background-color: rgba(0, 0, 0, 0.04);
+  color: rgba(0, 0, 0, 0.45);
+  border-radius: 10%;
+  text-decoration: none;
+  padding: 6px 12px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.page-link {
+  cursor: pointer;
+}
+
+.pagination a:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.6);
+  border-radius: 10%;
+  text-decoration: none;
+  padding: 6px 12px;
+  font-size: 15px;
+  cursor: pointer;
+}

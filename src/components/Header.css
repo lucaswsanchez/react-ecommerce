@@ -1,0 +1,47 @@
+.header-header {
+  width: 80%;
+  margin: auto;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header-one {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.header-title {
+  color: white;
+  font-size: 18px;
+}
+
+.shopping-cart-btn {
+  color: white;
+  background-color: black;
+  border: none;
+  cursor: pointer;
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+
+.product-count {
+  padding-left: 5px;
+}
+
+.header-two {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.searching-bar {
+  padding-top: 16px;
+  width: 70%;
+}

@@ -1,35 +1,126 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import Products from "../src/components/Products";
+import Pagination from "../src/components/Pagination";
+import Header from "./components/Header";
+import axios from "axios";
+import ShoppingCart from "./components/ShoppingCart";
+import Sliders from "./components/Sliders";
+import Carrusel1 from "../src/assets/images/Carrusel1.png";
+import Carrusel2 from "../src/assets/images/Carrusel2.png";
+import Carrusel3 from "../src/assets/images/Carrusel3.png";
+import Carrusel4 from "../src/assets/images/Carrusel4.png";
+import Footer from "./components/Footer";
+
+const slides = [Carrusel1, Carrusel2, Carrusel3, Carrusel4];
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [products, setProductsAxios] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage] = useState(5);
+  const [cartsVisibilty, setCartVisible] = useState(false);
+  const [productsInCart, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      setLoading(true);
+      const res = await axios.get("https://fakestoreapi.com/products");
+      setProductsAxios(res.data);
+      setLoading(false);
+    };
+
+    fetchProducts();
+  }, []);
+
+  const addProductToCart = (product) => {
+    const newProduct = {
+      ...product,
+      count: 1,
+    };
+    setProducts([...productsInCart, newProduct]);
+  };
+
+  const onQuantityChange = (productId, count) => {
+    setProducts((oldState) => {
+      const productsIndex = oldState.findIndex((item) => item.id === productId);
+      if (productsIndex !== -1) {
+        oldState[productsIndex].count = count;
+      }
+      return [...oldState];
+    });
+  };
+
+  const onProductRemove = (product) => {
+    setProducts((oldState) => {
+      const productsIndex = oldState.findIndex(
+        (item) => item.id === product.id
+      );
+      if (productsIndex !== -1) {
+        oldState.splice(productsIndex, 1);
+      }
+      return [...oldState];
+    });
+  };
+
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = products.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <ShoppingCart
+        visibilty={cartsVisibilty}
+        products={productsInCart}
+        onClose={() => setCartVisible(false)}
+        onQuantityChange={onQuantityChange}
+        onProductRemove={onProductRemove}
+      />
+
+      <header>
+        <Header
+          setCartVisible={setCartVisible}
+          productsInCart={productsInCart}
+          addProductToCart={addProductToCart}
+        />
+      </header>
+      <div style={{ maxWidth: "100%", margin: "auto" }}>
+        <Sliders>
+          {slides.map((s) => (
+            <img
+              src={s}
+              style={{
+                minWidth: "100%",
+                width: "100%",
+                height: "100%",
+                padding: "0px",
+                objectFit: "contain",
+                backgroundColor: "#060413",
+              }}
+            />
+          ))}
+        </Sliders>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <main>
+        <Products
+          products={currentProducts}
+          loading={loading}
+          addProductToCart={addProductToCart}
+          onClick={() => setDetailVisible(true)}
+        />
+        <Pagination
+          productsPerPage={productsPerPage}
+          totalProducts={products.length}
+          paginate={paginate}
+        />
+      </main>
+      <footer><Footer /></footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

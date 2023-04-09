@@ -1,0 +1,168 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000055;
+  z-index: 10;
+}
+
+.shoppingCart {
+  width: 60%;
+  height: 90%;
+  margin: 2rem auto;
+  background-color: #EBEBEB;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.shoppingCart .header {
+  display: flex;
+  background-color: black;
+  justify-content: space-between;
+  height: 100px;
+  color: white;
+}
+
+.header-title-cart {
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+.header-close-btn {
+  margin-top: 28px;
+  margin-right: 20px;
+}
+
+.close-btn {
+  color: white;
+}
+
+.cart-products {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: scroll;
+  gap: 10px;
+  padding-top: 2%;
+}
+
+.empty-text {
+  display: block;
+  margin: auto;
+  font-size: 15px;
+}
+
+.cart-product {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  background-color: #fff;
+}
+
+.product-image {
+  margin: auto;
+  width: 20%;
+  border-right: 8px solid #EBEBEB;
+}
+
+.product-image img {
+  padding: 0;
+  width: 100px;
+  object-fit: contain;
+}
+
+.product-info {
+  width: 80%;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.product-info-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  padding: 0;
+  margin: 0;
+}
+
+.product-info p {
+  font-size: 16px;
+}
+
+.product-price {
+  font-size: 20px;
+}
+
+.product-info-2 {
+  display: flex;
+  align-items: center;
+  width: 20%;
+}
+
+.cart-product select {
+  height: 30px;
+  width: 80%;
+  font-size: 1rem;
+  outline: none;
+}
+
+.checkout-btn {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  align-self: center;
+  margin-top: 25px;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+@media (max-width: 990px) {
+ .shoppingCart {
+    width: 90%;
+  }
+}
+
+@media (max-width: 726px) {
+  .shoppingCart {
+    width: 98%;
+  }
+
+  .product-info {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .product-info-1 p {
+    text-align: center;
+  }
+
+  .product-image img {
+    width: 50px;
+    padding: 5px;
+  }
+
+  .cart-product select {
+    width: 100px;
+  }
+
+  .checkout-btn {
+    font-size: 0.8rem;
+  }
+}

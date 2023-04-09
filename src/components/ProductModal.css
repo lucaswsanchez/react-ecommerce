@@ -1,0 +1,151 @@
+.productModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000055;
+  z-index: 10;
+}
+
+.modalMain {
+  width: 60%;
+  height: 90%;
+  margin: 2rem auto;
+  background-color: #ededed;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.modalHeader {
+  display: flex;
+  height: 80px;
+  background-color: black;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 15px;
+}
+
+.close-icon {
+  cursor: pointer;
+  color: white;
+  margin-right: 15px;
+}
+
+.modalMainContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #ededed;
+}
+
+.modalMainContainer1 {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.modalProductImage {
+  width: 80%;
+  height: 80%;
+  margin: auto;
+  object-fit: contain;
+  max-height: 380px;
+  -webkit-box-shadow: 0px 8px 13px 0px rgba(0, 0, 0, 0.34);
+  -moz-box-shadow: 0px 8px 13px 0px rgba(0, 0, 0, 0.34);
+  box-shadow: 0px 8px 13px 0px rgba(0, 0, 0, 0.34);
+}
+
+.modalMainContainer2 {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+}
+
+.modalProductTitle {
+  font-size: 18px;
+  padding-right: 30px;
+  border-bottom: 1px solid gray;
+  width: 95%;
+}
+
+.modalProductDescription {
+  font-size: 12px;
+  line-height: 1.5;
+  padding-right: 30px;
+}
+
+.modalProductPrice {
+  font-size: 24px;
+  border-bottom: 1px solid gray;
+  width: 95%;
+}
+
+.addCartBtn {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.04);
+  color: rgba(0, 0, 0, 0.45);
+  border-radius: 6px;
+  border: none;
+  font-size: 16px;
+}
+
+.addCartBtn:hover {
+  transform: scale(1.1);
+  transition-duration: 0.2s;
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  background-color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.6);
+  border-radius: 6px;
+  border: none;
+}
+
+@media (max-width: 990px) {
+  .modalMain {
+    width: 90%;
+  }
+}
+
+@media (max-width: 800px) {
+  .modalHeader {
+    height: 20px;
+    background-color: #ededed;
+    margin: 0;
+  }
+
+  .close-icon {
+    font-size: 20px;
+    cursor: pointer;
+    color: black;
+    margin: 0;
+  }
+
+  .modalMainContainer {
+    flex-direction: column;
+    overflow-y: scroll;
+  }
+
+  .modalMainContainer1 {
+    width: 90%;
+  }
+
+  .modalMainContainer2 {
+    width: 90%;
+  }
+
+  .addCartBtn {
+    margin: auto;
+  }
+}

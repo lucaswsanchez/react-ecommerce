@@ -1,0 +1,53 @@
+.footer-main {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  padding-top: 28px;
+}
+
+.footer-logo {
+  color: white;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.footer-social-networks {
+  display: flex;
+  flex: row;
+  gap: 15px;
+}
+
+.instagram-gradient {
+  border-radius: 20%;
+  background-image: linear-gradient(
+    to right top,
+    #efc201,
+    #f3a900,
+    #f59000,
+    #f57400,
+    #f35500,
+    #f64122,
+    #f72936,
+    #f40048,
+    #ec006d,
+    #d9008f,
+    #b82eac,
+    #8b47c2
+  );
+}
+
+.footer-text {
+    color: white;
+    font-style: italic;
+} 
+
+@media  screen and (max-width: 600px) {
+  .footer-logo {
+    font-size: 20px;
+  }
+
+  .footer-text {
+    font-size: 14px;
+  }
+}
