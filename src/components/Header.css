@@ -44,5 +44,18 @@
 
 .searching-bar {
   padding-top: 16px;
-  width: 70%;
+  width: 80%;
+}
+
+@media (max-width: 600px) {
+  .header-header {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+  }
+
+  .searching-bar {
+    width: 100%;
+  }
 }

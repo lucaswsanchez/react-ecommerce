@@ -75,6 +75,7 @@
 
 .modalProductTitle {
   font-size: 18px;
+  font-weight: bold;
   padding-right: 30px;
   border-bottom: 1px solid gray;
   width: 95%;
@@ -88,6 +89,7 @@
 
 .modalProductPrice {
   font-size: 24px;
+  font-weight: bold;
   border-bottom: 1px solid gray;
   width: 95%;
 }

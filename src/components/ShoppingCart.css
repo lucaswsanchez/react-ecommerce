@@ -84,6 +84,7 @@
   align-items: center;
   display: flex;
   flex-direction: row;
+  padding-left: 10px;
 }
 
 .product-info-1 {
