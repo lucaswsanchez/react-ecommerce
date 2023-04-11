@@ -11,6 +11,8 @@ import Carrusel2 from "../src/assets/images/Carrusel2.png";
 import Carrusel3 from "../src/assets/images/Carrusel3.png";
 import Carrusel4 from "../src/assets/images/Carrusel4.png";
 import Footer from "./components/Footer";
+import Filter from "./components/Filter";
+
 
 const slides = [Carrusel1, Carrusel2, Carrusel3, Carrusel4];
 
@@ -18,9 +20,13 @@ function App() {
   const [products, setProductsAxios] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage] = useState(5);
+  const [productsPerPage] = useState(4);
   const [cartsVisibilty, setCartVisible] = useState(false);
   const [productsInCart, setProducts] = useState([]);
+  const [category, setCategory] = useState("all");
+  const [priceOrder, setPriceOrder] = useState("none");
+
+  /* Llamada a la API */
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -32,6 +38,8 @@ function App() {
 
     fetchProducts();
   }, []);
+
+  /*Shopping cart*/
 
   const addProductToCart = (product) => {
     const newProduct = {
@@ -63,9 +71,25 @@ function App() {
     });
   };
 
+  /*Filtrado y ordenamiento*/
+
+  let filteredProducts = products;
+  if (category !== "all") {
+    filteredProducts = filteredProducts.filter(
+      (product) => product.category === category
+    );
+  }
+  if (priceOrder === "asc") {
+    filteredProducts.sort((a, b) => a.price - b.price);
+  } else if (priceOrder === "desc") {
+    filteredProducts.sort((a, b) => b.price - a.price);
+  }
+
+  /*Paginacion*/
+
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = products.slice(
+  const currentProducts = filteredProducts.slice(
     indexOfFirstProduct,
     indexOfLastProduct
   );
@@ -80,7 +104,6 @@ function App() {
         onQuantityChange={onQuantityChange}
         onProductRemove={onProductRemove}
       />
-
       <header>
         <Header
           setCartVisible={setCartVisible}
@@ -106,6 +129,7 @@ function App() {
         </Sliders>
       </div>
       <main>
+        <Filter setCategory={setCategory} setPriceOrder={setPriceOrder} />
         <Products
           products={currentProducts}
           loading={loading}
@@ -114,11 +138,13 @@ function App() {
         />
         <Pagination
           productsPerPage={productsPerPage}
-          totalProducts={products.length}
+          totalProducts={filteredProducts.length}
           paginate={paginate}
         />
       </main>
-      <footer><Footer /></footer>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }
