@@ -1,14 +1,14 @@
 .footer-main {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 18px;
   align-items: center;
-  padding-top: 28px;
+  padding-top: 18px;
 }
 
 .footer-logo {
   color: white;
-  font-size: 26px;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -19,6 +19,7 @@
 }
 
 .instagram-gradient {
+  color: #1F2937;
   border-radius: 20%;
   background-image: linear-gradient(
     to right top,
@@ -38,13 +39,14 @@
 }
 
 .footer-text {
-    color: white;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
     font-style: italic;
 } 
 
 @media  screen and (max-width: 600px) {
   .footer-logo {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .footer-text {

@@ -13,7 +13,6 @@ import Carrusel4 from "../src/assets/images/Carrusel4.png";
 import Footer from "./components/Footer";
 import Filter from "./components/Filter";
 
-
 const slides = [Carrusel1, Carrusel2, Carrusel3, Carrusel4];
 
 function App() {

@@ -24,7 +24,7 @@
 
 .shopping-cart-btn {
   color: white;
-  background-color: black;
+  background-color: #1f2937;
   border: none;
   cursor: pointer;
   margin: auto;
@@ -43,7 +43,6 @@
 }
 
 .searching-bar {
-  padding-top: 16px;
   width: 80%;
 }
 
@@ -52,7 +51,6 @@
     width: 100%;
     padding-left: 15px;
     padding-right: 15px;
-    padding-bottom: 10px;
   }
 
   .searching-bar {

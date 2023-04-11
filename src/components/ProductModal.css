@@ -24,7 +24,7 @@
 .modalHeader {
   display: flex;
   height: 80px;
-  background-color: black;
+  background-color: #1F2937;
   align-items: center;
   justify-content: flex-end;
   margin-bottom: 15px;

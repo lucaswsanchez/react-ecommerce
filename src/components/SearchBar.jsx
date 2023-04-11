@@ -37,7 +37,7 @@ function SearchBar({ addProductToCart }) {
           <input
             className="search-input"
             type="text"
-            placeholder="Search..."
+            placeholder="What are you looking for?"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />

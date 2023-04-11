@@ -28,6 +28,7 @@
   margin-bottom: 3%;
   border: 1px solid lightgray;
   padding-left: 10px;
+  border-radius: 6px 0px 0px 6px ;
 }
 
 .search-icon {
@@ -39,6 +40,7 @@
   border: 1px solid lightgray;
   cursor: pointer;
   padding: 5px;
+  border-radius: 0px 6px 6px 0px;
 }
 
 .search-results {
