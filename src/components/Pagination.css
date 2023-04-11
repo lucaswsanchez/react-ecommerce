@@ -33,3 +33,10 @@
   font-size: 15px;
   cursor: pointer;
 }
+
+@media (max-width: 450px) {
+  .pagination ul {
+    gap: 2rem;
+  }
+  
+}

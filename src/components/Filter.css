@@ -43,3 +43,10 @@
   color: rgba(0, 0, 0, 0.6);
   background-color: rgba(0, 0, 0, 0.2);
 }
+
+@media (max-width: 430px) {
+  .filter-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -23,7 +23,7 @@
 
 .shoppingCart .header {
   display: flex;
-  background-color: #1F2937;
+  background-color: black;
   justify-content: space-between;
   height: 100px;
   color: white;
@@ -118,11 +118,11 @@
 }
 
 .checkout-btn {
-  background-color: #1F2937;
+  background-color: black;
   color: white;
   cursor: pointer;
   padding: 10px 20px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   align-self: center;
   margin-top: 25px;
 }
