@@ -12,39 +12,39 @@ function ShoppingCart({
 }) {
   return (
     <div
-      className="modal"
+      className="shopping-cart-modal"
       style={{
         display: visibilty ? "block" : "none",
       }}
     >
-      <div className="shoppingCart">
-        <div className="header">
-          <div className="header-title-cart">
+      <div className="shopping-cart">
+        <div className="shopping-cart-header">
+          <div className="shopping-cart-header-title-cart">
             <h4>SHOPPING CART</h4>
           </div>
-          <div className="header-close-btn">
+          <div className="shopping-cart-header-close-btn">
             <button className="btn close-btn" onClick={onClose}>
               <AiFillCloseCircle size={26} />
             </button>
           </div>
         </div>
-        <div className="cart-products">
+        <div className="shopping-cart-products">
           {products.length === 0 && (
             <span className="empty-text">Your basket is currently empty</span>
           )}
           {products.map((product) => (
-            <div className="cart-product" key={product.id}>
-              <div className="product-image">
+            <div className="shopping-cart-product" key={product.id}>
+              <div className="shopping-cart-product-image">
                 <img src={product.image} alt={product.title} />
               </div>
-              <div className="product-info">
-                <div className="product-info-1">
+              <div className="shopping-cart-product-info">
+                <div className="shopping-cart-product-info-1">
                   <p>{product.title}</p>
-                  <span className="product-price">
+                  <span className="shopping-cart-product-price">
                     {product.price * product.count}$
                   </span>
                 </div>
-                <div className="product-info-2">
+                <div className="shopping-cart-product-info-2">
                   <select
                     className="count"
                     value={product.count}

@@ -12,21 +12,19 @@ const Products = ({ products, loading, addProductToCart }) => {
   }
 
   if (loading) {
-    return (
-      <h4 style={{ textAlign: "center", paddingTop: "80px" }}>Loading...</h4>
-    );
+    return <h4 className="products-loading">Loading...</h4>;
   }
 
   return (
     <div>
-      <div className="flex">
+      <div className="products-container">
         {products.map((el) => (
-          <div id={el.id} className="product">
-            <figure onClick={() => openProductModal(el)}>
+          <div id={el.id} className="products">
+            <figure className="products-figure" onClick={() => openProductModal(el)}>
               <div>
-                <img src={el.image} alt={el.title} />
+                <img className="products-image" src={el.image} alt={el.title} />
               </div>
-              <div className="product-title-price">
+              <div className="products-title-price">
                 <div className="title">
                   <p>{el.title}</p>
                 </div>
