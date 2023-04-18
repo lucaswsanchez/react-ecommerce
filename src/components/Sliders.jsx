@@ -1,4 +1,5 @@
 import React from "react";
+import "../components/Sliders.css"
 import { BsChevronLeft } from "react-icons/bs";
 import { BsChevronRight } from "react-icons/bs";
 import { useState } from "react";
@@ -12,7 +13,7 @@ function Sliders({ children: slides }) {
     setCurr((curr) => (curr === slides.length - 1 ? 0 : curr + 1));
 
   return (
-    <div style={{ overflow: "hidden", position: "relative" }}>
+    <div className="slider-container"  style={{ overflow: "hidden", position: "relative" }}>
       <div
         style={{
           display: "flex",
