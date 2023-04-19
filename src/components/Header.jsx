@@ -15,7 +15,7 @@ function Header({ setCartVisible, productsInCart, addProductToCart }) {
             className="shopping-cart-btn"
             onClick={() => setCartVisible(true)}
           >
-            <FiShoppingCart className="cart-btn" font-size={30} />
+            <FiShoppingCart className="cart-btn" fontSize={30} />
             {productsInCart.length > 0 && (
               <span className="product-count">{productsInCart.length}</span>
             )}

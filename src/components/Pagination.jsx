@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../components/Pagination.css";
 
 const Pagination = ({ productsPerPage, totalProducts, paginate }) => {
@@ -13,13 +14,13 @@ const Pagination = ({ productsPerPage, totalProducts, paginate }) => {
       <ul>
         {pageNumbers.map((number) => (
           <li key={number}>
-            <a
+            <Link
+              to={`#${number}`}
               onClick={() => paginate(number)}
-              href={() => false}
               className="page-link"
             >
-              {number}
-            </a>
+            {number}
+            </Link>
           </li>
         ))}
       </ul>

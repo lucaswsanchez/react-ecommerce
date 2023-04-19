@@ -6,10 +6,31 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 function ShoppingCart({
   visibilty,
   products,
-  onProductRemove,
+  setProductsInCart,
   onClose,
-  onQuantityChange,
 }) {
+  const onQuantityChange = (productId, count) => {
+    setProductsInCart((oldState) => {
+      const productsIndex = oldState.findIndex((item) => item.id === productId);
+      if (productsIndex !== -1) {
+        oldState[productsIndex].count = count;
+      }
+      return [...oldState];
+    });
+  };
+
+  const onProductRemove = (product) => {
+    setProductsInCart((oldState) => {
+      const productsIndex = oldState.findIndex(
+        (item) => item.id === product.id
+      );
+      if (productsIndex !== -1) {
+        oldState.splice(productsIndex, 1);
+      }
+      return [...oldState];
+    });
+  };
+
   return (
     <div
       className="shopping-cart-modal"

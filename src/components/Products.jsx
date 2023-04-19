@@ -19,7 +19,7 @@ const Products = ({ products, loading, addProductToCart }) => {
     <div>
       <div className="products-container">
         {products.map((el) => (
-          <div id={el.id} className="products">
+          <div id={el.id} key={el.id} className="products">
             <figure className="products-figure" onClick={() => openProductModal(el)}>
               <div>
                 <img className="products-image" src={el.image} alt={el.title} />

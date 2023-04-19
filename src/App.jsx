@@ -1,88 +1,72 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useMemo } from "react";
 import "./App.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Products from "../src/components/Products";
 import Pagination from "../src/components/Pagination";
 import Header from "./components/Header";
-import axios from "axios";
 import ShoppingCart from "./components/ShoppingCart";
 import Sliders from "./components/Sliders";
-import Carrusel1 from "../src/assets/images/Carrusel1.png";
-import Carrusel2 from "../src/assets/images/Carrusel2.png";
-import Carrusel3 from "../src/assets/images/Carrusel3.png";
-import Carrusel4 from "../src/assets/images/Carrusel4.png";
 import Footer from "./components/Footer";
 import Filter from "./components/Filter";
 
-const slides = [Carrusel1, Carrusel2, Carrusel3, Carrusel4];
-
-function App() {
-  const [products, setProductsAxios] = useState([]);
-  const [loading, setLoading] = useState(false);
+function App({ products, loading }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(4);
   const [cartsVisibilty, setCartVisible] = useState(false);
-  const [productsInCart, setProducts] = useState([]);
+  const [productsInCart, setProductsInCart] = useState([]);
   const [category, setCategory] = useState("all");
   const [priceOrder, setPriceOrder] = useState("none");
-
-  /* Llamada a la API */
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      setLoading(true);
-      const res = await axios.get("https://fakestoreapi.com/products");
-      setProductsAxios(res.data);
-      setLoading(false);
-    };
-
-    fetchProducts();
-  }, []);
 
   /*Shopping cart*/
 
   const addProductToCart = (product) => {
-    const newProduct = {
-      ...product,
-      count: 1,
-    };
-    setProducts([...productsInCart, newProduct]);
-  };
+    const productExists = productsInCart.find((p) => p.id === product.id);
 
-  const onQuantityChange = (productId, count) => {
-    setProducts((oldState) => {
-      const productsIndex = oldState.findIndex((item) => item.id === productId);
-      if (productsIndex !== -1) {
-        oldState[productsIndex].count = count;
-      }
-      return [...oldState];
-    });
-  };
-
-  const onProductRemove = (product) => {
-    setProducts((oldState) => {
-      const productsIndex = oldState.findIndex(
-        (item) => item.id === product.id
-      );
-      if (productsIndex !== -1) {
-        oldState.splice(productsIndex, 1);
-      }
-      return [...oldState];
-    });
+    if (productExists) {
+      toast.error("This product is already in the cart", {
+        position: "bottom-right",
+        autoClose: 500,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    } else {
+      const newProduct = {
+        ...product,
+        count: 1,
+      };
+      setProductsInCart((productsInCart) => [...productsInCart, newProduct]);
+      toast.success("Product added to cart!", {
+        position: "bottom-right",
+        autoClose: 200,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
   };
 
   /*Filtrado y ordenamiento*/
 
-  let filteredProducts = products;
-  if (category !== "all") {
-    filteredProducts = filteredProducts.filter(
-      (product) => product.category === category
-    );
-  }
-  if (priceOrder === "asc") {
-    filteredProducts.sort((a, b) => a.price - b.price);
-  } else if (priceOrder === "desc") {
-    filteredProducts.sort((a, b) => b.price - a.price);
-  }
+  const filteredProducts = useMemo(() => {
+    let filtered = products;
+    if (category !== "all") {
+      filtered = filtered.filter((product) => product.category === category);
+    }
+    if (priceOrder === "asc") {
+      filtered.sort((a, b) => a.price - b.price);
+    } else if (priceOrder === "desc") {
+      filtered.sort((a, b) => b.price - a.price);
+    }
+    return filtered;
+  }, [products, category, priceOrder]);
 
   /*Paginacion*/
 
@@ -99,10 +83,10 @@ function App() {
       <ShoppingCart
         visibilty={cartsVisibilty}
         products={productsInCart}
+        setProductsInCart={setProductsInCart}
         onClose={() => setCartVisible(false)}
-        onQuantityChange={onQuantityChange}
-        onProductRemove={onProductRemove}
       />
+      <ToastContainer />
       <header>
         <Header
           setCartVisible={setCartVisible}
@@ -110,31 +94,21 @@ function App() {
           addProductToCart={addProductToCart}
         />
       </header>
-      <div style={{ maxWidth: "100%", margin: "auto" }}>
-        <Sliders>
-          {slides.map((s) => (
-            <img
-              src={s}
-              style={{
-                minWidth: "100%",
-                width: "100%",
-                height: "100%",
-                padding: "0px",
-                objectFit: "contain",
-                backgroundColor: "#060413",
-              }}
-            />
-          ))}
-        </Sliders>
-      </div>
+      <section>
+        <Sliders />
+      </section>
       <main>
-        <Filter setCategory={setCategory} setPriceOrder={setPriceOrder} />
-        <Products
-          products={currentProducts}
-          loading={loading}
-          addProductToCart={addProductToCart}
-          onClick={() => setDetailVisible(true)}
-        />
+        <section>
+          <Filter setCategory={setCategory} setPriceOrder={setPriceOrder} />
+        </section>
+        <section>
+          <Products
+            products={currentProducts}
+            loading={loading}
+            addProductToCart={addProductToCart}
+            onClick={() => setDetailVisible(true)}
+          />
+        </section>
         <Pagination
           productsPerPage={productsPerPage}
           totalProducts={filteredProducts.length}

@@ -1,7 +1,5 @@
 import React from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import "../components/ProductModal.css";
 
 function ProductModal({ onClose, isVisible, product, addProductToCart }) {
@@ -17,7 +15,7 @@ function ProductModal({ onClose, isVisible, product, addProductToCart }) {
         <div className="modal-header">
           <AiFillCloseCircle
             className="close-icon"
-            font-size={30}
+            fontSize={30}
             onClick={onClose}
           />
         </div>
@@ -37,21 +35,10 @@ function ProductModal({ onClose, isVisible, product, addProductToCart }) {
               className="add-cart-btn"
               onClick={() => {
                 addProductToCart(product);
-                toast.success("Product added to cart!", {
-                  position: "bottom-right",
-                  autoClose: 200,
-                  hideProgressBar: true,
-                  closeOnClick: true,
-                  pauseOnHover: false,
-                  draggable: true,
-                  progress: undefined,
-                  theme: "dark",
-                });
               }}
             >
               Add to Cart
             </button>
-            <ToastContainer />
           </div>
         </div>
       </div>

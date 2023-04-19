@@ -1,6 +1,7 @@
 .slider-container {
   position: relative;
   overflow: hidden;
+  max-width: 100%
 }
 
 .slider-images {
