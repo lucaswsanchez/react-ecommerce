@@ -1,5 +1,5 @@
 import React from "react";
-import "../components/ShoppingCart.css";
+import "./ShoppingCart.css";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { RiDeleteBin6Line } from "react-icons/ri";
 

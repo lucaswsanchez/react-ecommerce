@@ -1,12 +1,12 @@
 import React from "react";
-import "../components/Sliders.css";
+import "./Sliders.css";
 import { BsChevronLeft } from "react-icons/bs";
 import { BsChevronRight } from "react-icons/bs";
 import { useState } from "react";
-import Carrusel1 from "../assets/images/Carrusel1.png";
-import Carrusel2 from "../assets/images/Carrusel2.png";
-import Carrusel3 from "../assets/images/Carrusel3.png";
-import Carrusel4 from "../assets/images/Carrusel4.png";
+import Carrusel1 from "C:/Users/USUARIO/Desktop/E-commerce/react-ecommerce/src/assets/images/Carrusel1.png";
+import Carrusel2 from "C:/Users/USUARIO/Desktop/E-commerce/react-ecommerce/src/assets/images/Carrusel2.png";
+import Carrusel3 from "C:/Users/USUARIO/Desktop/E-commerce/react-ecommerce/src/assets/images/Carrusel3.png";
+import Carrusel4 from "C:/Users/USUARIO/Desktop/E-commerce/react-ecommerce/src/assets/images/Carrusel4.png";
 
 const slides = [Carrusel1, Carrusel2, Carrusel3, Carrusel4];
 

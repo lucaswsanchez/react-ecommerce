@@ -1,5 +1,5 @@
 import React from "react";
-import "../components/Header.css";
+import "./Header.css";
 import { FiShoppingCart } from "react-icons/fi";
 import SearchBar from "./SearchBar";
 

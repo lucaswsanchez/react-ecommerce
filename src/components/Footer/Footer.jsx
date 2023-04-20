@@ -1,5 +1,5 @@
 import React from "react";
-import "../components/Footer.css";
+import "./Footer.css";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { AiFillInstagram } from "react-icons/ai";
 import { RiFacebookCircleFill } from "react-icons/ri";

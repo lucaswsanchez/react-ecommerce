@@ -1,6 +1,6 @@
 import React from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
-import "../components/ProductModal.css";
+import "./ProductModal.css";
 
 function ProductModal({ onClose, isVisible, product, addProductToCart }) {
   return (

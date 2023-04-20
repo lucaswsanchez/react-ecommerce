@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../components/Pagination.css";
+import "./Pagination.css";
 
 const Pagination = ({ productsPerPage, totalProducts, paginate }) => {
   const pageNumbers = [];

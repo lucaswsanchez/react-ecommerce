@@ -1,7 +1,7 @@
-import "../components/SearchBar.css";
+import "./SearchBar.css";
 import { AiOutlineSearch } from "react-icons/ai";
 import React, { useState, useEffect } from "react";
-import ProductModal from "./ProductModal";
+import ProductModal from "../Main/ProductModal";
 
 function SearchBar({ addProductToCart }) {
   const [searchTerm, setSearchTerm] = useState("");

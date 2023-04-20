@@ -2,13 +2,13 @@ import React, { useState, useMemo } from "react";
 import "./App.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Products from "../src/components/Products";
-import Pagination from "../src/components/Pagination";
-import Header from "./components/Header";
-import ShoppingCart from "./components/ShoppingCart";
-import Sliders from "./components/Sliders";
-import Footer from "./components/Footer";
-import Filter from "./components/Filter";
+import Products from "./components/Main/Products";
+import Pagination from "./components/Main/Pagination";
+import Header from "./components/Header/Header";
+import ShoppingCart from "./components/Header/ShoppingCart";
+import Sliders from "./components/Main/Sliders";
+import Footer from "./components/Footer/Footer";
+import Filter from "./components/Main/Filter";
 
 function App({ products, loading }) {
   const [currentPage, setCurrentPage] = useState(1);
