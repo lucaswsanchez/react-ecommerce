@@ -25,7 +25,7 @@ const Api = () => {
 
   return (
     <React.StrictMode>
-      <App products={products} loading={loading} />;
+      <App products={products} loading={loading} />
     </React.StrictMode>
   );
 };
