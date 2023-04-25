@@ -9,6 +9,7 @@ import ShoppingCart from "./components/Header/ShoppingCart";
 import Sliders from "./components/Main/Sliders";
 import Footer from "./components/Footer/Footer";
 import Filter from "./components/Main/Filter";
+import Card from "./components/Main/Card";
 
 function App({ products, loading }) {
   const [currentPage, setCurrentPage] = useState(1);
@@ -96,25 +97,28 @@ function App({ products, loading }) {
       </header>
       <section>
         <Sliders />
-      </section>
-      <main>
-        <section>
-          <Filter setCategory={setCategory} setPriceOrder={setPriceOrder} />
-        </section>
-        <section>
-          <Products
-            products={currentProducts}
-            loading={loading}
-            addProductToCart={addProductToCart}
-            onClick={() => setDetailVisible(true)}
+        <main>
+          <section>
+            <Card />
+          </section>
+          <section>
+            <Filter setCategory={setCategory} setPriceOrder={setPriceOrder} />
+          </section>
+          <section>
+            <Products
+              products={currentProducts}
+              loading={loading}
+              addProductToCart={addProductToCart}
+              onClick={() => setDetailVisible(true)}
+            />
+          </section>
+          <Pagination
+            productsPerPage={productsPerPage}
+            totalProducts={filteredProducts.length}
+            paginate={paginate}
           />
-        </section>
-        <Pagination
-          productsPerPage={productsPerPage}
-          totalProducts={filteredProducts.length}
-          paginate={paginate}
-        />
-      </main>
+        </main>
+      </section>
       <footer>
         <Footer />
       </footer>
