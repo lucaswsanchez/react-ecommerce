@@ -155,3 +155,34 @@
     margin: auto;
   }
 }
+
+@media (max-width: 300px) {
+  .modal-header {
+    padding-bottom: 12px;
+  }
+
+  .modal-main {
+    gap: 10px;
+  }
+
+  .modal-main-2 {
+    height: 180%;
+  }
+
+  .modal-product-title {
+    font-size: 14px;
+  }
+
+  .modal-product-description {
+    font-size: 10px;
+  }
+
+  .modal-product-price {
+    font-size: 16px;
+  }
+
+  .add-cart-btn {
+    font-size: 10px;
+    margin-bottom: 12px;
+  }
+}

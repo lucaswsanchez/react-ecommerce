@@ -40,3 +40,9 @@
   }
   
 }
+
+@media (max-width: 300px) {
+  .pagination ul {
+    gap: 1rem;
+  }
+}

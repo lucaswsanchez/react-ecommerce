@@ -57,3 +57,9 @@
     width: 100%;
   }
 }
+
+@media (max-width: 300px) {
+  .header-title {
+    font-size: 14px;
+  }
+}
