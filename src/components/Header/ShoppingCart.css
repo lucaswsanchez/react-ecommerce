@@ -218,6 +218,7 @@
 @media (max-width: 300px) {
   .shopping-cart {
     padding: 5px;
+    margin: 20px 3px 20px 3px;
   }
 
   .empty-text {
