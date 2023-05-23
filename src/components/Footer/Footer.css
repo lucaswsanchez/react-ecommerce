@@ -52,3 +52,19 @@
     font-size: 14px;
   }
 }
+
+@media (max-width: 300px) {
+  .footer-main {
+    gap: 8px;
+    padding-top: 8px;
+  }
+
+  .footer-logo {
+    font-size: 14px;
+  }
+  
+  .footer-text {
+    font-size: 10px;
+    margin-bottom: 3px;
+  }
+}
