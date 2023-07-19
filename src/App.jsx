@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import "./App.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -18,8 +18,7 @@ function App({ products, loading }) {
   const [productsInCart, setProductsInCart] = useState([]);
   const [category, setCategory] = useState("all");
   const [priceOrder, setPriceOrder] = useState("none");
-
-  /*Shopping cart*/
+  const [filterChanged, setFilterChanged] = useState(false);
 
   const addProductToCart = (product) => {
     const productExists = productsInCart.find((p) => p.id === product.id);
@@ -54,8 +53,6 @@ function App({ products, loading }) {
     }
   };
 
-  /*Filtrado y ordenamiento*/
-
   const filteredProducts = useMemo(() => {
     let filtered = products;
     if (category !== "all") {
@@ -66,10 +63,19 @@ function App({ products, loading }) {
     } else if (priceOrder === "desc") {
       filtered.sort((a, b) => b.price - a.price);
     }
-    return filtered;
-  }, [products, category, priceOrder]);
+    if (filterChanged) {
+      setCurrentPage(1);
+      setFilterChanged(false);
+    }
 
-  /*Paginacion*/
+    return filtered;
+  }, [products, category, priceOrder, filterChanged]);
+
+  const handleFilterChange = () => {
+    setFilterChanged(true);
+  };
+
+  const totalFilteredProducts = filteredProducts.length;
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
@@ -102,7 +108,11 @@ function App({ products, loading }) {
             <Card />
           </section>
           <section>
-            <Filter setCategory={setCategory} setPriceOrder={setPriceOrder} />
+            <Filter
+              setCategory={setCategory}
+              setPriceOrder={setPriceOrder}
+              onFilterChange={handleFilterChange}
+            />
           </section>
           <section>
             <Products
@@ -114,7 +124,7 @@ function App({ products, loading }) {
           </section>
           <Pagination
             productsPerPage={productsPerPage}
-            totalProducts={filteredProducts.length}
+            totalProducts={totalFilteredProducts}
             paginate={paginate}
           />
         </main>
