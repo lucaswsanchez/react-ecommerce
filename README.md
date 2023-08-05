@@ -1,4 +1,4 @@
-# Proyecto E-Commerce con React
+# E-Commerce 
 
 ![E-Commerce](/src/assets/images/screenshot1.png)
 
