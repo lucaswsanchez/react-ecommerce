@@ -8,7 +8,7 @@ This is an E-Commerce project built with React. It allows users to browse differ
 ## Demo
 You can see a live demo of the project [here](https://lucaswsanchez.github.io/react-ecommerce/).
 
-## Capturas de pantalla
+## Screenshots
 ![Captura de pantalla 1](/src/assets/images/screenshot2.png)
 ![Captura de pantalla 2](/src/assets/images/screenshot3.png)
 
