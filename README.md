@@ -6,7 +6,7 @@
 This is an E-Commerce project built with React. It allows users to browse different products and add them to the shopping cart. The project includes functionalities such as product search, filtering by categories and a shopping cart. Products are obtained from an external public API (https://fakestoreapi.com/).
 
 ## Demo
-You can see a live demo of the project here [aquí](https://lucaswsanchez.github.io/react-ecommerce/).
+You can see a live demo of the project [here](https://lucaswsanchez.github.io/react-ecommerce/).
 
 ## Capturas de pantalla
 ![Captura de pantalla 1](/src/assets/images/screenshot2.png)
