@@ -22,7 +22,7 @@ You can see a live demo of the project [here](https://lucaswsanchez.github.io/re
 - Navigation by product categories.
 - Search products by name or description.
 - Add products to the shopping cart.
-- View shopping cart contents.
+- View shopping cart products.
 - Carousel of images.
 
 ## Contact
